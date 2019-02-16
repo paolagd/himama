@@ -33,14 +33,11 @@ class HomepageController extends Controller
     {
         $timetable = new timetable();
         $time      = Carbon::now();  
-
-        // clock_in  = 0
-        // clock_out = 1;
+ 
         $data = [ 
             "employee_id" => $request->employee_id,  
             "check_in"    => $time 
         ];
-
 
         if( $request->action_type == "check_in" ){
  
@@ -49,6 +46,8 @@ class HomepageController extends Controller
         else  if( $request->action_type == "check_out" ){ 
             $timetable = $timetable->checkOut($request->employee_id);
         }
+
+        return redirect('/');
  
  
     }
@@ -71,6 +70,13 @@ class HomepageController extends Controller
         }else
             return null;
  
+    }
+
+    //Loads the timetable
+    public function getTimesheet(Request $request)
+    {
+        $timetable = new timetable();       
+        return View::make('timetable')->with('timetable', $timetable->getTimetable());
     }
 
 }

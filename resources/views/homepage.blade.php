@@ -43,7 +43,13 @@
 						<input type="hidden" name="action_type" id="action_type">
 						<button type="submit" id="clock_in" class="btn btn-warning" disabled="true">CLOCK IN</button>
 						<button type="submit" id="clock_out"  class="btn btn-warning" disabled="true">CLOCK OUT</button>
+
+
 					</form>
+
+					<br>
+
+					<a id="timesheet" href="timesheet" >Timesheet</a>
 		   		</div>		
 		    </div>  
 
