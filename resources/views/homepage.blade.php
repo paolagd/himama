@@ -9,10 +9,11 @@
 
 		   	<div class="row" style="height: 12vh"></div>
 
-		   	<div class="row" style="background-color: #ADDDE8; height: 20vh"> 
+		   	<div class="row" style="background-color: #ADDDE8; height: 22vh"> 
 		   		<div style="margin: auto;" class="text-center">
 		   			<br>
-		   			<h3  style="color:white;">HI, THERE!</h3> 
+		   			<h4  style="color:white;">HI, THERE!</h5> 
+					<h1 style="color:white;"> {{$content['day']}} </h1>
 					<h1 id="time" style="color:white;"> </h1>
 
 		   		</div>
@@ -36,8 +37,9 @@
 <script type="text/javascript">
  
 
+//  Displays current time
 function showTime(){
-	
+
     var date = new Date();
     var h = date.getHours(); // 0 - 23
     var m = date.getMinutes(); // 0 - 59
@@ -64,6 +66,7 @@ function showTime(){
     setTimeout(showTime, 1000);
     
 }
+
 showTime();
 
 
