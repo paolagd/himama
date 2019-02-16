@@ -32,26 +32,7 @@
 		</div> 
     </section>
 
-
-<script type="text/javascript">
-  function showTime() {
-    var date = new Date(),
-        utc = new Date(Date.UTC(
-          date.getFullYear(),
-          date.getMonth(),
-          date.getDate(),
-          date.getHours(),
-          date.getMinutes(),
-          date.getSeconds()
-        ));
-
-    document.getElementById('time').innerHTML = utc.toLocaleTimeString();
-  }
-
-  setInterval(showTime, 1000);
-</script>
-
-
+ 
 @endsection
 
 
