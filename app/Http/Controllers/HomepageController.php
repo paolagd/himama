@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use Carbon\Carbon;
+use Carbon\Carbon; 
 
 use App\employee;
 use App\timetable;
@@ -19,8 +19,7 @@ class HomepageController extends Controller
         $employees = new employee();  
         $day	   = Carbon::now();  
 
-      	$employeesInfo = $employees->getEmployees();
- 
+      	$employeesInfo = $employees->getEmployees(); 
         $content = [
             'employees' => $employeesInfo,
             'day' => $day->format('m-d-y')
@@ -39,31 +38,39 @@ class HomepageController extends Controller
         // clock_out = 1;
         $data = [ 
             "employee_id" => $request->employee_id,  
-            "check_in"    => $time
+            "check_in"    => $time 
         ];
 
-        if( $request->action_type == 0 )
+
+        if( $request->action_type == "check_in" ){
+ 
             $timetable = $timetable->checkIn($data);
+        }
+        else  if( $request->action_type == "check_out" ){ 
+            $timetable = $timetable->checkOut($request->employee_id);
+        }
+ 
+ 
+    }
 
-        else  if( $request->action_type == 1 )
+    //Function check employee status in the timesheet by first checking credentials
+    public function employeeStatus(Request $request, $id, $password)
+    {
+        $timetable = new timetable(); 
+        $employee  = new employee();
+       
+        $checkPw = $employee->checkPassword($id, $password);
 
+        if ($checkPw){
+            $status = $timetable->checkStatus($id);
 
-        dd($request);
+            if ($status) $action_type = 'out';
+            else $action_type = 'in';
 
-    /*    $requestUser = [
-            "email" => $request->email,
-            "password" => $request->password,
-            "identidad" => $request->rif,
-            "tipo" => "entidad"
-        ];
-
-        $respuesta['regSuccess'] = "true";
-        $respuesta['loginSelected'] = "toggled";
-        $respuesta['regSelected'] = "";
-
-
-        $entidad->createNew($requestEntidad);
-        $userAdmin->createNew($requestUser);*/
+            return [ "action_type" => $action_type] ;
+        }else
+            return null;
+ 
     }
 
 }

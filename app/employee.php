@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Hash;
 
 class employee extends Model
 {
@@ -14,5 +15,15 @@ class employee extends Model
     {
         $employee = new employee();
         return $employee->all();
+    }  
+
+    public function checkPassword($id, $pw)
+    {
+       $hashedPassword = employee::find($id)->password;
+
+		if (Hash::check($pw, $hashedPassword)) 
+			return true;
+		else
+			return false;
     }
 }

@@ -12,8 +12,8 @@
 
         <!-- Styles -->  
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
- 
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
+  
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="/js/functions.js"></script>
  
         <style>

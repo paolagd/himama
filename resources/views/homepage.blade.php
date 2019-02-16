@@ -35,14 +35,14 @@
 						<div class="input-group input-group-sm mb-3">
 							<div class="input-group">
 								<span class="input-group-addon">Password</span>  
-								<input type="Password" class="form-control" name="password" required>
+								<input id="password" type="Password" class="form-control" name="password" required>
 							</div>
 
 						</div> 
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-						<input type="hidden" name="action_type">
-						<button type="submit" class="btn btn-warning">CLOCK IN</button>
-						<button type="submit" class="btn btn-warning">CLOCK OUT</button>
+						<input type="hidden" name="action_type" id="action_type">
+						<button type="submit" id="clock_in" class="btn btn-warning" disabled="true">CLOCK IN</button>
+						<button type="submit" id="clock_out"  class="btn btn-warning" disabled="true">CLOCK OUT</button>
 					</form>
 		   		</div>		
 		    </div>  

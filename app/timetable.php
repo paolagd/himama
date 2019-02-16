@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class timetable extends Model
 {
@@ -19,8 +20,12 @@ class timetable extends Model
 
     public function checkStatus($id)
     {
-    	$row = timetable::where('employee_id',$id)->first();
-        return $timetable->all();
+        $time = Carbon::now();  
+    	$row  = timetable::where('employee_id',$id)->whereDate('check_in','=', $time)->whereNull('check_out')->first();
+    	if($row != null)
+            return true;
+        else
+            return false;
     }
 
     public function checkIn($request)
@@ -29,12 +34,10 @@ class timetable extends Model
         return $timetable;
     }
 
-    public function checkOut($id)
-    {
-    	$row = timetable::where('employee_id',$id)->first();
-    	/*$row->checkOut =  
-        $row->save();*/
-
+    public function checkOut($employee_id)
+    { 
+    	$time = Carbon::now(); 
+    	$row = timetable::where('employee_id',$employee_id)->orderBy('check_in', 'desc')->first()->update(['check_out'=> $time]); 
         return $row;	
     }
  
