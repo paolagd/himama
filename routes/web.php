@@ -17,4 +17,4 @@
 
 
 
-Route::get('/', 'HomepageController@getInfo');
+Route::get('/home', 'HomepageController@getInfo');
