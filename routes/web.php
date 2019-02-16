@@ -11,6 +11,7 @@
 |
 */
 
-
-Route::get('/', 'HomepageController@getInfo');
+Route::get('/', function () {
+    return view('homepage');
+});
 
