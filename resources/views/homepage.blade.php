@@ -13,21 +13,38 @@
 		   		<div style="margin: auto;" class="text-center">
 		   			<br>
 		   			<h4  style="color:white;">HI, THERE!</h5> 
-					<h1 style="color:white;"> {{$content['day']}} </h1>
+					<h2 style="color:white;"> {{$content['day']}} </h2>
 					<h1 id="time" style="color:white;"> </h1>
-
-		   		</div>
-			 
+		   		</div>			 
 		    </div>
 
 
-		    <div class="row" style="background-color: #ADDDE8; height: 50vh">
-		        <div class="col-md-6  ">
-		            <div class="center-block">1 center-block</div>
-		        </div>
-		        <div class="col-md-6  ">
-		            <div class="center-block">2 center-block</div>
-		        </div>
+		    <div class="row" style="background-color: #ADDDE8; height: 50vh"> 
+		    	<br>
+	         	<div style="margin: auto;" class="text-center col-md-8">
+	         		<form class="" action="clock" method="post" id="formClock">
+			   			<br>
+						<select id="employee" name="employee_id" class="search__form-control search__form-control--select form-control js-in-select"> 
+							<option value="">Select</option>
+							@foreach($content['employees'] as $employee)
+							<option value="{{$employee->id}}">{{$employee->first_name}} {{$employee->last_name}}</option>
+							@endforeach 
+						</select>
+						<br>
+
+						<div class="input-group input-group-sm mb-3">
+							<div class="input-group">
+								<span class="input-group-addon">Password</span>  
+								<input type="Password" class="form-control" name="password" required>
+							</div>
+
+						</div> 
+						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="action_type">
+						<button type="submit" class="btn btn-warning">CLOCK IN</button>
+						<button type="submit" class="btn btn-warning">CLOCK OUT</button>
+					</form>
+		   		</div>		
 		    </div>  
 
 		</div> 
@@ -37,37 +54,37 @@
 <script type="text/javascript">
  
 
-//  Displays current time
-function showTime(){
+	//  Displays current time
+	function showTime(){
 
-    var date = new Date();
-    var h = date.getHours(); // 0 - 23
-    var m = date.getMinutes(); // 0 - 59
-    var s = date.getSeconds(); // 0 - 59
-    var session = "AM";
-    
-    if(h == 0){
-        h = 12;
-    }
-    
-    if(h > 12){
-        h = h - 12;
-        session = "PM";
-    }
-    
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
-    
-    var time = h + ":" + m + ":" + s + " " + session;
-    document.getElementById("time").innerText = time;
-    document.getElementById("time").textContent = time;
-    
-    setTimeout(showTime, 1000);
-    
-}
+	    var date = new Date();
+	    var h = date.getHours(); // 0 - 23
+	    var m = date.getMinutes(); // 0 - 59
+	    var s = date.getSeconds(); // 0 - 59
+	    var session = "AM";
+	    
+	    if(h == 0){
+	        h = 12;
+	    }
+	    
+	    if(h > 12){
+	        h = h - 12;
+	        session = "PM";
+	    }
+	    
+	    h = (h < 10) ? "0" + h : h;
+	    m = (m < 10) ? "0" + m : m;
+	    s = (s < 10) ? "0" + s : s;
+	    
+	    var time = h + ":" + m + ":" + s + " " + session;
+	    document.getElementById("time").innerText = time;
+	    document.getElementById("time").textContent = time;
+	    
+	    setTimeout(showTime, 1000);
+	    
+	}
 
-showTime();
+	showTime();
 
 
 </script>

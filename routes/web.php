@@ -13,3 +13,8 @@
  
 
 Route::get('/', 'HomepageController@getInfo');
+
+
+ 
+//  Clock routes
+require('himamaroutes/clockRoutes.php');  
