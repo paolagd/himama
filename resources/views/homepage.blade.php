@@ -13,7 +13,7 @@
 		   		<div style="margin: auto;" class="text-center">
 		   			<br>
 		   			<h3  style="color:white;">HI, THERE!</h3> 
-					<h1 style="color:white;">HI, THERE!</h1>
+					<h1 id="time" style="color:white;"> </h1>
 
 		   		</div>
 			 
@@ -33,6 +33,23 @@
     </section>
 
 
+<script type="text/javascript">
+  function showTime() {
+    var date = new Date(),
+        utc = new Date(Date.UTC(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate(),
+          date.getHours(),
+          date.getMinutes(),
+          date.getSeconds()
+        ));
+
+    document.getElementById('time').innerHTML = utc.toLocaleTimeString();
+  }
+
+  setInterval(showTime, 1000);
+</script>
 
 
 @endsection
