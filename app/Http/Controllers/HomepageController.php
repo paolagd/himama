@@ -14,16 +14,16 @@ class HomepageController extends Controller
     
     public function getInfo(Request $request)
     {
-        $employees = employee::all(); 
+        /*$employees = employee::all(); 
         $time	   = Carbon::now();
 		$time      = new Carbon();
 
         $content = [
             'employees' => $employees,
             'time' => $time
-        ];
+        ];*/
 
-        return View::make('homepage')->with('content', $content);
+        return View::make('homepage');//->with('content', $content);
     }
 
 }
