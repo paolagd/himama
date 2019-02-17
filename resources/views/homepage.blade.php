@@ -33,7 +33,7 @@
 						<div class="input-group input-group-sm mb-3">
 							<div class="input-group">
 								<span class="input-group-addon">Password</span>  
-								<input id="password" type="Password" class="form-control" name="password" required>
+								<input id="password" class="form-control" name="password" required>
 							</div>
 						</div> 
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
@@ -50,6 +50,7 @@
 		    </div>  
 
 		   	<div class="row" style="height: 10vh">		   		
+		   	    <img src="/images/childcare5.png" style="width: 232px; margin: auto;" >
 		   	</div>
 		</div> 
     </section>
