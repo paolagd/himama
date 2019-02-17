@@ -20,7 +20,7 @@ class timetable extends Model
 
     public function checkStatus($id)
     {
-        $time = Carbon::now();  
+        $time =  Carbon::now('America/Montreal');
     	$row  = timetable::where('employee_id',$id)->whereDate('check_in','=', $time)->whereNull('check_out')->first();
     	if($row != null)
             return true;
@@ -36,7 +36,7 @@ class timetable extends Model
 
     public function checkOut($employee_id)
     { 
-    	$time = Carbon::now(); 
+    	$time =  Carbon::now('America/Montreal');
     	$row = timetable::where('employee_id',$employee_id)->orderBy('check_in', 'desc')->first()->update(['check_out'=> $time]); 
         return $row;	
     }

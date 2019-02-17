@@ -17,8 +17,8 @@ class HomepageController extends Controller
     public function getInfo(Request $request)
     {
         $employees = new employee();  
-        $day	   = Carbon::now();  
-
+        $day	   =  Carbon::now('America/Montreal');  
+        
       	$employeesInfo = $employees->getEmployees(); 
         $content = [
             'employees' => $employeesInfo,
@@ -32,8 +32,7 @@ class HomepageController extends Controller
     public function clockAction(Request $request)
     {
         $timetable = new timetable();
-        $time      = Carbon::now();  
- 
+        $time      =  Carbon::now('America/Montreal');
         $data = [ 
             "employee_id" => $request->employee_id,  
             "check_in"    => $time 
@@ -47,7 +46,7 @@ class HomepageController extends Controller
             $timetable = $timetable->checkOut($request->employee_id);
         }
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Thank you! Information updated.');
  
  
     }
@@ -76,7 +75,15 @@ class HomepageController extends Controller
     public function getTimesheet(Request $request)
     {
         $timetable = new timetable();       
-        return View::make('timetable')->with('timetable', $timetable->getTimetable());
+        $employee  = new employee();       
+        $timetable = $timetable->getTimetable();
+        foreach ($timetable as &$t) {
+            $e =  $employee->getEmployeeById($t->employee_id);
+            $t->name = $e->first_name . " ".  $e->last_name;
+
+        }
+ 
+        return View::make('timetable')->with('timetable',$timetable);
     }
 
 }

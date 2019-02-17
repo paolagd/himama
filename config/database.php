@@ -54,7 +54,7 @@ return [
             'engine' => null,
         ],
 
-        /*  'mysql' => [
+         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
@@ -68,7 +68,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-*/
+ 
 
         'pgsql' => [
             'driver' => 'pgsql',

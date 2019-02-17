@@ -17,6 +17,13 @@ class employee extends Model
         return $employee->all();
     }  
 
+    public function getEmployeeById($id)
+    {
+       $employee = employee::find($id);
+       return $employee;
+    
+    }  
+
     public function checkPassword($id, $pw)
     {
        $hashedPassword = employee::find($id)->password;

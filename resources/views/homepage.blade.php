@@ -6,19 +6,17 @@
     <section id="homepage">
 
 	    <div class="container"> 
-
-		   	<div class="row" style="height: 12vh"></div>
+		
+		   	<div class="row" style="height: 10vh"></div>
 
 		   	<div class="row" style="background-color: #ADDDE8; height: 22vh"> 
 		   		<div style="margin: auto;" class="text-center">
 		   			<br>
-		   			<h4  style="color:white;">HI, THERE!</h5> 
-					<h2 style="color:white;"> {{$content['day']}} </h2>
-					<h1 id="time" style="color:white;"> </h1>
+		   			<h4>HI, THERE!</h5> 
+					<h2> {{$content['day']}} </h2>
+					<h1 id="time"> </h1>
 		   		</div>			 
 		    </div>
-
-
 		    <div class="row" style="background-color: #ADDDE8; height: 50vh"> 
 		    	<br>
 	         	<div style="margin: auto;" class="text-center col-md-8">
@@ -37,28 +35,28 @@
 								<span class="input-group-addon">Password</span>  
 								<input id="password" type="Password" class="form-control" name="password" required>
 							</div>
-
 						</div> 
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 						<input type="hidden" name="action_type" id="action_type">
 						<button type="submit" id="clock_in" class="btn btn-warning" disabled="true">CLOCK IN</button>
 						<button type="submit" id="clock_out"  class="btn btn-warning" disabled="true">CLOCK OUT</button>
-
-
 					</form>
 
 					<br>
 
 					<a id="timesheet" href="timesheet" >Timesheet</a>
+ 
 		   		</div>		
 		    </div>  
 
+		   	<div class="row" style="height: 10vh">		   		
+		   	    <img src="/images/childcare5.png" style="width: 232px; margin: auto;" >
+		   	</div>
 		</div> 
     </section>
 
 
 <script type="text/javascript">
- 
 
 	//  Displays current time
 	function showTime(){

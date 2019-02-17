@@ -14,8 +14,9 @@ $( document ).on('keyup','#password',function(e){
 	}
  
 });
+ 
 
- function getInformation(id, pw) {
+function getInformation(id, pw) {
  
 
 	$.ajax({

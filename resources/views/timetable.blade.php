@@ -6,38 +6,39 @@
     <section id="timesheet">
 
 	    <div class="container"> 
-
+	    	<br>
+	    	<a type="button" class="btn btn-warning" href="/">Home</a>
 		   	<div class="row" style="height: 12vh"></div>
 
-		   	<div class="row" style="height: 60vh"> 
+		   	<div class="row" style="height: 60vh; overflow-y:scroll;"> 
 		   	 	<table class="table">
 				  <thead>
-				    <tr>
-				      <th scope="col">#</th>
-				      <th scope="col">First</th>
-				      <th scope="col">Last</th>
-				      <th scope="col">Handle</th>
+				    <tr> 
+				      <th scope="col">Check In</th>
+				      <th scope="col">Check Out</th>
+				      <th scope="col">Employee</th>
 				    </tr>
 				  </thead>
-				  <tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
+				  <tbody> 
+		
+				    
+				    @if (!$timetable->isEmpty())
+
+						@foreach($timetable as $t)
+							<tr> 
+								<td>{{$t->check_in}}</td>
+								<td>{{$t->check_out}}</td>
+								<td>{{$t->name}}</td> 
+							</tr>
+
+						@endforeach
+					@else
+					<div class="text-center">
+					  <i class="zmdi zmdi-alert-circle  zmdi-hc-4x"></i>
+					  <h4 class="listing__empty-title">No results.</h4>
+					</div>
+					@endif
+			    
 				  </tbody>
 				</table>	 
 		    </div>
