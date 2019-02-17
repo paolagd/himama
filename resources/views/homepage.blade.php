@@ -6,9 +6,9 @@
     <section id="homepage">
 
 	    <div class="container"> 
-	    	@if (Session::has('message'))
+	    	<!--@if (Session::has('message'))
 			   <div class="alert alert-info">{{ Session::get('message') }}</div>
-			@endif
+			@endif-->
 		
 		   	<div class="row" style="height: 10vh"></div>
 
