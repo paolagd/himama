@@ -39,7 +39,6 @@ function getInformation(id, pw) {
 
 	   },
 	   error: function(data){
-	   		alert("Error, please try later.")
 	   }
 	});
 	
