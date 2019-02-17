@@ -50,7 +50,6 @@
 		    </div>  
 
 		   	<div class="row" style="height: 10vh">		   		
-		   	    <img src="/images/childcare5.png" style="width: 232px; margin: auto;" >
 		   	</div>
 		</div> 
     </section>
