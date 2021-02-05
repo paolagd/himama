@@ -4,7 +4,6 @@
 
 
 All the testing users have been previously stored.
-To test it the password for all of them is : himama1 
 
 
 ##Jquery	
